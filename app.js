@@ -9,7 +9,7 @@ app.get("/", function(req,res){
 });
 
 app.get("/chatrooms",function(req,res){
-    res.send
+    res.send("chatrooms")
 });
 
 server.listen(8000, function(){
