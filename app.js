@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const server = require('http').Server(app);
 const mongoose = require("mongoose");
+const Lobby = require("./models/lobby");
+const bodyParser = require("body-parser");
 
 
 //Connect to database
@@ -16,15 +18,15 @@ mongoose.connect('mongodb+srv://tadipasi:barcelona@cluster0-81zn9.mongodb.net/te
 });
 
 
-
+app.use(bodyParser.urlEncoded({extended:true}));
 app.set("view engine", "ejs");
 
 app.get("/", function(req,res){
     res.send("home page")
 });
 
-app.get("/chatrooms",function(req,res){
-    res.send("chatrooms")
+app.get("/lobby",function(req,res){
+    res.send("lobby")
 });
 
 server.listen(8000, function(){
